@@ -1,6 +1,8 @@
-# to-do-list
+# To Do List App
 
-This template should help get you started developing with Vue 3 in Vite.
+**Versión 1.0.0**
+
+To do list app with Vue 3 in Vite.
 
 ## Recommended IDE Setup
 
@@ -27,3 +29,10 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Upcoming Features
+- Dark mode
+- Different background colors
+- Strikethrough text when task is completed (checkbox checked)
+- Clear completed tasks
+- Clear all tasks
