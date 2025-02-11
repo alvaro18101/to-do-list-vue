@@ -1,6 +1,6 @@
 # To Do List App
 
-**Versión 1.0.0**
+**v1.1.0**
 
 To do list app with Vue 3 in Vite.
 
@@ -34,5 +34,4 @@ npm run build
 - Dark mode
 - Different background colors
 - Strikethrough text when task is completed (checkbox checked)
-- Clear completed tasks
-- Clear all tasks
+- Button to delete completed tasks

@@ -28,12 +28,17 @@
     width: 75%;
   }
 
-  .tasksList {
+  .tasks-list {
     width: 90%;
+  }
+
+  .deleteAll {
+    font-size: 0.9rem;
   }
 
   .task {
     padding: 1rem;
+    font-size: 1rem;
   }
 
   .no-tasks h2 {

@@ -17,8 +17,8 @@
       </div>
     </section>
 
-    <section class="tasksList-container" v-if="tasks.length > 0">
-      <div class="tasksList">
+    <section class="tasks-list-container" v-if="tasks.length > 0">
+      <div class="tasks-list">
         <ul>
           <li v-for="(task, key) in tasks" :key = "key">
             <div class="task">
@@ -30,13 +30,24 @@
               </label>
               <img class="deleteTask button"
                 src="./assets/images/delete.png" 
-                alt="+"
+                alt="x"
                 @click="deleteTask(key)"
                 draggable="false"
               >
             </div>
           </li>
         </ul>
+      </div>
+      <div class="delete-buttons-container">
+        <div class="deleteAll" @click="deleteAll">
+            <img 
+            src="./assets/images/delete_white.png" 
+            alt="X" 
+            class="button"
+            draggable="false"
+          >
+            Borrar todas las tareas
+        </div>
       </div>
     </section>
 
@@ -57,6 +68,7 @@ export default {
   data() {
     const tasks = []
     return {
+      counter: 1,
       tasks: [],
       newTask: {
         title: ''
@@ -84,10 +96,15 @@ export default {
     deleteTask(taskIndex) {
       this.tasks.splice(taskIndex, 1)
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    },
+
+    deleteAll() {
+      this.tasks = []
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
     }
 
-  }
 
+  }
 }
 
 </script>
