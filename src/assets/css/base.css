@@ -19,11 +19,21 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  --blanco-calido: #FFF9F0;
+  --gris-azulado-claro: #F0F4F8;
+  --lavanda-suave: #F9EBF9;
+
+  --gris-oscuro-pastel: #4A4A4A;
+  --azul-oscruo-pastel: #2C3E50;
+  --morado-oscuro: #5A496E;
+
+  --gris-pizarra: #5f6368;
 }
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
+  --color-background: var(--gris-azulado-claro);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
 

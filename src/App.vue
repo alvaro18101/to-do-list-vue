@@ -4,10 +4,10 @@
 
 <template>
   <div id="aplication">
-    <section class="tasks">
+    <section class="task-title-container">
       <h1>Lista de Tareas</h1>
-      <div class="taskTitle-container">
-        <input type="text" name="" id="taskTitle" placeholder="Ingresa la tarea" @keyup.enter="addTask">
+      <div class="task-input-container">
+        <input type="text" name="" id="task-title" placeholder="Ingresa la tarea" @keyup.enter="addTask">
         <img class="addTask button"
           src="./assets/images/add.png" 
           alt="+"
@@ -31,7 +31,7 @@
               <img class="deleteTask button"
                 src="./assets/images/delete.png" 
                 alt="+"
-                @click="deleteTask"
+                @click="deleteTask(key)"
                 draggable="false"
               >
             </div>
@@ -51,9 +51,11 @@
 <script>
 import './assets/css/main.css'
 import './assets/css/mediaqueries.css'
+import './assets/css/fonts.css'
 
 export default {
   data() {
+    const tasks = []
     return {
       tasks: [],
       newTask: {
@@ -64,10 +66,10 @@ export default {
 
   methods: {
     addTask() {
-      const taskInput = document.getElementById('taskTitle')
-      const title = document.getElementById('taskTitle').value
+      const taskInput = document.getElementById('task-title')
+      const title = document.getElementById('task-title').value
 
-      if (title != '') {
+      if (title.replaceAll(' ', '') != '') {
         this.newTask.title = title
         this.tasks.push(this.newTask)
 
@@ -76,13 +78,12 @@ export default {
         }
         taskInput.value = ''
       }
-      else {
-        alert('Tarea vacía')
-      }
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     },
 
-    deleteTask() {
+    deleteTask(taskIndex) {
+      this.tasks.splice(taskIndex, 1)
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
     }
 
   }

@@ -7,7 +7,15 @@
 
 @media screen and (max-width:900px) {
   #aplication {
+    gap: 2rem;
+  }
+
+  .task-title-container {
     gap: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
   }
 
   .button {
@@ -16,8 +24,8 @@
     cursor: pointer;
   }
 
-  .taskTitle-container {
-    width: 70%;
+  .task-input-container {
+    width: 75%;
   }
 
   .tasksList {
@@ -26,5 +34,9 @@
 
   .task {
     padding: 1rem;
+  }
+
+  .no-tasks h2 {
+    font-size: 1.3em;
   }
 }
