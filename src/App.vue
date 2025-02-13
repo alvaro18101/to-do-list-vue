@@ -8,12 +8,14 @@
       <h1>Lista de Tareas</h1>
       <div class="task-input-container">
         <input type="text" name="" id="task-title" placeholder="Ingresa la tarea" @keyup.enter="addTask">
-        <img class="addTask button"
-          src="./assets/images/add.png" 
-          alt="+"
-          @click="addTask"
-          draggable="false"
-        >
+        <div class="button-addTask-container" @click="addTask">
+          <img class="addTask"
+            src="./assets/images/add_white.png" 
+            alt="+"
+            @click="addTask"
+            draggable="false"
+          >
+        </div>
       </div>
     </section>
 

@@ -32,6 +32,6 @@ npm run build
 
 ## Upcoming Features
 - Dark mode
-- Different background colors
+- Multi-theme support
 - Strikethrough text when task is completed (checkbox checked)
 - Button to delete completed tasks

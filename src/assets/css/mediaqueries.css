@@ -1,5 +1,11 @@
 @media screen and (max-width:1200px) {
+  .task-input-container {
+    width: 60%;
+  }
 
+  .tasks-list {
+    width: 60%;
+  }
 }
 
 
@@ -16,7 +22,11 @@
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .task-input-container {
+    width: 75%;
   }
 
   .button {
@@ -25,9 +35,6 @@
     cursor: pointer;
   }
 
-  .task-input-container {
-    width: 75%;
-  }
 
   .tasks-list {
     width: 90%;

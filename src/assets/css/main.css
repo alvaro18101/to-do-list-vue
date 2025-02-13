@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: var(--color-background);
+  background-color: #FFFFFF;
 }
 
 #aplication {
@@ -32,7 +32,7 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -40,27 +40,49 @@ h1 {
 .task-input-container {
   width: 40%;
   display: flex;
-  gap: 1rem;
+  gap: 0rem;
   align-items: center;
-  justify-content: start;
+  justify-content: end;
 }
 
 #task-title {
   width: 100%;
   border: none;
-  border-bottom: 3px solid var(--gris-pizarra);
-  border-radius: 2px;
+  border: 1px solid var(--gris-claro);
+  border-radius: 15px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   padding: 1rem;
   font-family: Poppins;
   outline: none;
   font-size: 1rem;
   background-color: transparent;
+  /* box-sizing: border-box; */
   /* letter-spacing: 0.05rem; */
 }
 
 #task-title:focus {
-  border-bottom: 3px solid #000000;
-  transition: 0.5s;
+  box-shadow: 0px 0px 3px 0px var(--gris-claro);
+  transition: 0.2s;
+}
+
+.button-addTask-container {
+  width: 60px;
+  height: 100%;
+  background-color: var(--azul-oscuro-pastel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--azul-oscuro-pastel);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.button-addTask-container:hover {
+  opacity: 0.7;
+  transition: 0.3s;
 }
 
 .button {
@@ -70,15 +92,10 @@ h1 {
 }
 
 .addTask {
-  border: 3px solid var(--gris-pizarra);
-  border-radius: 100%;
-  box-sizing: border-box;
+  height: auto;
+  max-width: 40px;
 }
 
-.addTask:hover {
-  opacity: 0.7;
-  transition: 0.3s;
-}
 
 .deleteTask {
   /* border-radius: 100%; */
@@ -101,7 +118,7 @@ h1 {
 
 .tasks-list {
   font-size: 1.2rem;
-  width: 60%;
+  width: 40%;
 }
 
 .tasks-list ul {
@@ -119,12 +136,11 @@ h1 {
   flex-direction: row;
   gap: 1rem;
   padding: 1.5rem 2rem;
-  background-color: #FFFFFF;
-  border-radius: 10px;
+  background-color: var(--gris-azulado-claro);
   align-items: center;
   justify-content: space-between;
   font-size: 1.1rem;
-  /* border: 1px solid var(--gris-pizarra); */
+  border-radius: 15px;
 }
 
 .task-name {
