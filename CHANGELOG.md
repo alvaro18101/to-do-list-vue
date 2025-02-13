@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.0 (2025-02-13)
+## v1.1.1 (2025-02-13)
 ### Features
 - Change in the color palette
 

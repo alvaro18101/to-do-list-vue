@@ -1,6 +1,6 @@
 # To Do List App
 
-**v1.1.0**
+**v1.1.1**
 
 To do list app with Vue 3 in Vite.
 
