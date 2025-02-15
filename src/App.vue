@@ -56,7 +56,6 @@ export default {
   <div id="aplication">
     <section class="task-title-container">
       <h1>Lista de Tareas</h1>
-      Test
       <div class="task-input-container">
         <input type="text" name="" id="task-title" placeholder="Ingresa la tarea" @keyup.enter="addTask">
         <div class="button-addTask-container" @click="addTask">
