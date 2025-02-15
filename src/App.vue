@@ -1,4 +1,54 @@
-<script setup>
+<!-- <script setup>
+
+</script> -->
+
+<script>
+import './assets/css/main.css'
+import './assets/css/mediaqueries.css'
+import './assets/css/fonts.css'
+
+export default {
+  data() {
+    return {
+      counter: 1,
+      tasks: [],
+      newTask: {
+        title: '',
+      },
+      tasks: JSON.parse(localStorage.getItem('tasks')) || []
+    }
+  },
+
+  methods: {
+    addTask() {
+      const taskInput = document.getElementById('task-title')
+      const title = document.getElementById('task-title').value
+
+      if (title.replaceAll(' ', '') != '') {
+        this.newTask.title = title
+        this.tasks.push(this.newTask)
+
+        this.newTask = {
+          title: ''
+        }
+        taskInput.value = ''
+      }
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    },
+
+    deleteTask(taskIndex) {
+      this.tasks.splice(taskIndex, 1)
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    },
+
+    deleteAll() {
+      this.tasks = []
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    }
+
+
+  }
+}
 
 </script>
 
@@ -60,56 +110,6 @@
   </div>
 
 </template>
-
-<script>
-import './assets/css/main.css'
-import './assets/css/mediaqueries.css'
-import './assets/css/fonts.css'
-
-export default {
-  data() {
-    const tasks = []
-    return {
-      counter: 1,
-      tasks: [],
-      newTask: {
-        title: ''
-      }
-    }
-  },
-
-  methods: {
-    addTask() {
-      const taskInput = document.getElementById('task-title')
-      const title = document.getElementById('task-title').value
-
-      if (title.replaceAll(' ', '') != '') {
-        this.newTask.title = title
-        this.tasks.push(this.newTask)
-
-        this.newTask = {
-          title: ''
-        }
-        taskInput.value = ''
-      }
-      localStorage.setItem('tasks', JSON.stringify(this.tasks))
-    },
-
-    deleteTask(taskIndex) {
-      this.tasks.splice(taskIndex, 1)
-      localStorage.setItem('tasks', JSON.stringify(this.tasks))
-    },
-
-    deleteAll() {
-      this.tasks = []
-      localStorage.setItem('tasks', JSON.stringify(this.tasks))
-    }
-
-
-  }
-}
-
-</script>
 
 <style scoped>
 

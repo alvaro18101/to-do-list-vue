@@ -10,7 +10,6 @@
 
 
 
-
 @media screen and (max-width:900px) {
   #aplication {
     gap: 2rem;
@@ -51,5 +50,13 @@
 
   .no-tasks h2 {
     font-size: 1.3em;
+  }
+}
+
+
+
+@media (hover: none) {
+  .button-addTask-container:hover {
+    opacity: 1;
   }
 }
