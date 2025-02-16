@@ -1,6 +1,6 @@
 # To Do List App
 
-**v1.1.1**
+**v1.1.2**
 
 To do list app with Vue 3 in Vite.
 
@@ -35,3 +35,8 @@ npm run build
 - Multi-theme support
 - Strikethrough text when task is completed (checkbox checked)
 - Button to delete completed tasks
+
+
+## Deployment on Netlify
+Link: [To Do List](https://to-do-list-alvaro-siesquen.netlify.app/)
+Version: 1.1.2

@@ -16,8 +16,12 @@
   }
 
   .task-title-container {
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 2rem;
+  }
+
+  #task-title {
+    padding: 0.8rem 1rem;
   }
 
   h1 {
@@ -25,7 +29,7 @@
   }
 
   .task-input-container {
-    width: 75%;
+    width: 85%;
   }
 
   .button {

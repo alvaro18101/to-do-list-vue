@@ -3,9 +3,9 @@
 </script> -->
 
 <script>
-import './assets/css/main.css'
-import './assets/css/mediaqueries.css'
-import './assets/css/fonts.css'
+// import './assets/css/main.css'
+// import './assets/css/mediaqueries.css'
+// import './assets/css/fonts.css'
 
 export default {
   data() {
@@ -58,7 +58,7 @@ export default {
       <h1>Lista de Tareas</h1>
       <div class="task-input-container">
         <input type="text" name="" id="task-title" placeholder="Ingresa la tarea" @keyup.enter="addTask">
-        <div class="button-addTask-container" @click="addTask">
+        <div class="button-addTask-container" @click="adddeleteAllTask">
           <img class="addTask"
             src="./assets/images/add_white.png" 
             alt="+"
