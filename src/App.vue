@@ -9,11 +9,14 @@
 
 export default {
   data() {
+    const idCounter = 1;
     return {
-      counter: 1,
+      idCounter: 1,
       tasks: [],
       newTask: {
+        id: 1,
         title: '',
+        completed: false
       },
       tasks: JSON.parse(localStorage.getItem('tasks')) || []
     }
@@ -23,13 +26,22 @@ export default {
     addTask() {
       const taskInput = document.getElementById('task-title')
       const title = document.getElementById('task-title').value
+      if (this.tasks.length == 0) {
+        this.idCounter = 1
+      }
+
 
       if (title.replaceAll(' ', '') != '') {
+        this.newTask.id = this.idCounter
         this.newTask.title = title
+        this.newTask.completed = false
         this.tasks.push(this.newTask)
+        this.idCounter += 1
 
         this.newTask = {
-          title: ''
+          id: this.idCounter,
+          title: '',
+          completed: false
         }
         taskInput.value = ''
       }
@@ -37,15 +49,19 @@ export default {
     },
 
     deleteTask(taskIndex) {
-      this.tasks.splice(taskIndex, 1)
+      this.tasks = this.tasks.filter(task => task.id != taskIndex)
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     },
 
     deleteAll() {
       this.tasks = []
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
-    }
+      this.idCounter = 1
+    },
 
+    checkCompleted(taskId) {
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    }
 
   }
 }
@@ -72,18 +88,18 @@ export default {
     <section class="tasks-list-container" v-if="tasks.length > 0">
       <div class="tasks-list">
         <ul>
-          <li v-for="(task, key) in tasks" :key = "key">
+          <li v-for="task in tasks" :key = "task.id">
             <div class="task">
               <label class="task-name">
                 <div class="checkbox-container">
-                  <input type="checkbox" class="checkbox">
+                  <input type="checkbox" class="checkbox" v-model="task.completed" @change="checkCompleted">
                 </div>
                 {{ task.title }}
               </label>
               <img class="deleteTask button"
                 src="./assets/images/delete.png" 
                 alt="x"
-                @click="deleteTask(key)"
+                @click="deleteTask(task.id)"
                 draggable="false"
               >
             </div>
