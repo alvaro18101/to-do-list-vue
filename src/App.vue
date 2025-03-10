@@ -61,7 +61,12 @@ export default {
 
     checkCompleted(taskId) {
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
-    }
+    },
+
+    deleteCompleted() {
+      this.tasks = this.tasks.filter(task => task.completed == false)
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    },
 
   }
 }
@@ -107,6 +112,15 @@ export default {
         </ul>
       </div>
       <div class="delete-buttons-container">
+        <div class="deleteCompleted" @click="deleteCompleted">
+            <img 
+            src="./assets/images/delete_white.png" 
+            alt="X" 
+            class="button"
+            draggable="false"
+          >
+            Borrar las tareas completadas
+        </div>
         <div class="deleteAll" @click="deleteAll">
             <img 
             src="./assets/images/delete_white.png" 

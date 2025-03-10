@@ -42,6 +42,10 @@
   .tasks-list {
     width: 90%;
   }
+  
+  .deleteCompleted {
+    font-size: 0.9rem;
+  }
 
   .deleteAll {
     font-size: 0.9rem;
@@ -63,4 +67,16 @@
   .button-addTask-container:hover {
     opacity: 1;
   }
+
+  .deleteTask:hover {
+    opacity: 1;
+  }
+
+  .deleteCompleted:hover {
+    opacity: 1;
+  }
+
+  .deleteCompleted:hover {
+    opacity: 1;
+  }  
 }

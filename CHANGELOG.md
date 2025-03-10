@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.2.0 (2025-03-10)
+### Features
+- Button to delete completed tasks
+- Minor design fixes
+
+
+## v1.1.3 (2025-03-10)
+### Features
+- Fix the checkbox bug (the check remained when the task was deleted)
+- The checkbox status is saved in local storage
+
 ## v1.1.2 (2025-02-16)
 ### Features
 - Tasks continue to display when the web app is reloaded
