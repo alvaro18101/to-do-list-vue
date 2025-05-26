@@ -9,16 +9,16 @@
 
 export default {
   data() {
-    const idCounter = 1;
+        const idCounter = (JSON.parse(localStorage.getItem('tasks')) || []).length + 1;
     return {
-      idCounter: 1,
-      tasks: [],
+      idCounter: idCounter,
+      tasks: JSON.parse(localStorage.getItem('tasks')) || [],
       newTask: {
-        id: 1,
+        id: idCounter.length,
         title: '',
         completed: false
       },
-      tasks: JSON.parse(localStorage.getItem('tasks')) || []
+      // tasks: JSON.parse(localStorage.getItem('tasks')) || []
     }
   },
 
@@ -29,7 +29,6 @@ export default {
       if (this.tasks.length == 0) {
         this.idCounter = 1
       }
-
 
       if (title.replaceAll(' ', '') != '') {
         this.newTask.id = this.idCounter
@@ -50,7 +49,12 @@ export default {
 
     deleteTask(taskIndex) {
       this.tasks = this.tasks.filter(task => task.id != taskIndex)
-      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+      // reindex function
+      this.tasks.forEach((task, index) => {
+        task.id = index + 1
+      });
+      this.idCounter = this.tasks.length + 1;
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
 
     deleteAll() {
@@ -59,13 +63,17 @@ export default {
       this.idCounter = 1
     },
 
-    checkCompleted(taskId) {
+    checkCompleted() {
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     },
 
     deleteCompleted() {
       this.tasks = this.tasks.filter(task => task.completed == false)
-      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+      this.tasks.forEach((task, index) => {
+        task.id = index + 1
+      });
+      this.idCounter = this.tasks.length + 1;
+      localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
 
   }
