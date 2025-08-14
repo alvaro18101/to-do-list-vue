@@ -101,6 +101,7 @@ h1 {
 
 .deleteTask {
   /* border-radius: 100%; */
+  user-select: none;
 }
 
 .deleteTask:hover {
