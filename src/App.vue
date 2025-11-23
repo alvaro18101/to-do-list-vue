@@ -127,7 +127,7 @@ export default {
             class="button"
             draggable="false"
           >
-            Borrar las tareas completadas
+            Borrar las tareas completadas ({{this.tasks.filter(task => task.completed == true).length}}/{{this.tasks.length}})
         </div>
         <div class="deleteAll" @click="deleteAll">
             <img 
@@ -136,7 +136,7 @@ export default {
             class="button"
             draggable="false"
           >
-            Borrar todas las tareas
+            Borrar todas las tareas ({{this.tasks.length}})
         </div>
       </div>
     </section>
