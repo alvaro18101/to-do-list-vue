@@ -42,6 +42,11 @@
   .tasks-list {
     width: 90%;
   }
+
+  .delete-buttons-container {
+    width: 90%;
+    /* text-align: center; */
+  }
   
   .deleteCompleted {
     font-size: 0.9rem;
