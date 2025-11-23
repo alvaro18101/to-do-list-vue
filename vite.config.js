@@ -15,7 +15,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       manifest: {
         name: 'To-Do List',
-        short_name: 'ToDo',
+        short_name: 'To-Do List',
         start_url: '/',
         display: 'standalone',
         background_color: '#FFF9F0',
