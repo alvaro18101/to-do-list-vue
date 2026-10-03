@@ -6,6 +6,10 @@
   .tasks-list {
     width: 60%;
   }
+
+  .tabs-container {
+    width: 60%;
+  }
 }
 
 
@@ -48,6 +52,36 @@
     width: 90%;
   }
 
+  .lists-section {
+    gap: 1.5rem;
+  }
+
+  .tabs-container {
+    width: 90%;
+  }
+
+  .tab {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .tab-name {
+    max-width: 9rem;
+  }
+
+  .tab .icon-button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .modal {
+    padding: 1.5rem;
+  }
+
+  .modal-buttons button {
+    flex: 1;
+  }
+
   .delete-buttons-container {
     width: 90%;
     /* text-align: center; */
@@ -80,6 +114,18 @@
 
   .icon-button:hover {
     color: #5f6368;
+  }
+
+  .tab:hover {
+    border-color: transparent;
+  }
+
+  .tab.active:hover {
+    border-color: var(--azul-oscuro-pastel);
+  }
+
+  .modal-buttons button:hover {
+    opacity: 1;
   }
 
   .deleteCompleted:hover {
