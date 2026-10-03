@@ -6,8 +6,11 @@
 // import './assets/css/main.css'
 // import './assets/css/mediaqueries.css'
 // import './assets/css/fonts.css'
+import { Pencil, Trash2 } from '@lucide/vue'
 
 export default {
+  components: { Pencil, Trash2 },
+
   data() {
         const idCounter = (JSON.parse(localStorage.getItem('tasks')) || []).length + 1;
     return {
@@ -18,6 +21,8 @@ export default {
         title: '',
         completed: false
       },
+      editingId: null,
+      editTitle: '',
       // tasks: JSON.parse(localStorage.getItem('tasks')) || []
     }
   },
@@ -47,7 +52,31 @@ export default {
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     },
 
+    startEdit(task) {
+      this.editingId = task.id
+      this.editTitle = task.title
+      this.$nextTick(() => {
+        const editInput = document.querySelector('.edit-input')
+        if (editInput) editInput.focus()
+      })
+    },
+
+    saveEdit(task) {
+      if (this.editingId != task.id) return
+      if (this.editTitle.trim() != '') {
+        task.title = this.editTitle.trim()
+        localStorage.setItem('tasks', JSON.stringify(this.tasks))
+      }
+      this.cancelEdit()
+    },
+
+    cancelEdit() {
+      this.editingId = null
+      this.editTitle = ''
+    },
+
     deleteTask(taskIndex) {
+      this.cancelEdit()
       this.tasks = this.tasks.filter(task => task.id != taskIndex)
       // reindex function
       this.tasks.forEach((task, index) => {
@@ -58,6 +87,7 @@ export default {
     },
 
     deleteAll() {
+      this.cancelEdit()
       this.tasks = []
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
       this.idCounter = 1
@@ -68,6 +98,7 @@ export default {
     },
 
     deleteCompleted() {
+      this.cancelEdit()
       this.tasks = this.tasks.filter(task => task.completed == false)
       this.tasks.forEach((task, index) => {
         task.id = index + 1
@@ -107,14 +138,25 @@ export default {
                 <div class="checkbox-container">
                   <input type="checkbox" class="checkbox" v-model="task.completed" @change="checkCompleted">
                 </div>
-                {{ task.title }}
+                <input
+                  v-if="editingId == task.id"
+                  v-model="editTitle"
+                  type="text"
+                  class="edit-input"
+                  @keyup.enter="saveEdit(task)"
+                  @keyup.esc="cancelEdit"
+                  @blur="saveEdit(task)"
+                >
+                <span v-else>{{ task.title }}</span>
               </label>
-              <img class="deleteTask button"
-                src="./assets/images/delete.png" 
-                alt="x"
-                @click="deleteTask(task.id)"
-                draggable="false"
-              >
+              <div class="task-actions">
+                <button class="icon-button" type="button" aria-label="Editar tarea" @click="startEdit(task)">
+                  <Pencil />
+                </button>
+                <button class="icon-button" type="button" aria-label="Borrar tarea" @click="deleteTask(task.id)">
+                  <Trash2 />
+                </button>
+              </div>
             </div>
           </li>
         </ul>

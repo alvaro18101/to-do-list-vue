@@ -38,6 +38,11 @@
     cursor: pointer;
   }
 
+  .icon-button svg {
+    width: 25px;
+    height: 25px;
+  }
+
 
   .tasks-list {
     width: 90%;
@@ -73,8 +78,8 @@
     opacity: 1;
   }
 
-  .deleteTask:hover {
-    opacity: 1;
+  .icon-button:hover {
+    color: #5f6368;
   }
 
   .deleteCompleted:hover {

@@ -99,14 +99,49 @@ h1 {
 }
 
 
-.deleteTask {
-  /* border-radius: 100%; */
-  user-select: none;
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
-.deleteTask:hover {
-  opacity: 0.7;
-  transition: 0.3s;
+.icon-button {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #5f6368;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icon-button svg {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-button:hover {
+  color: #8a8f94;
+}
+
+/* El selector global `*` fuerza color #000; el svg y sus trazos deben heredar del botón */
+.icon-button svg,
+.icon-button svg * {
+  color: inherit;
+}
+
+.edit-input {
+  min-width: 0;
+  padding: 0.3rem 0.6rem;
+  font-size: inherit;
+  border: 1px solid #5f6368;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+
+.task-name span {
+  word-break: break-word;
 }
 
 .tasks-list-container {
